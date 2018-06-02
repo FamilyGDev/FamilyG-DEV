@@ -470,12 +470,12 @@ Citizen.CreateThread(function()
 	while true do
 
   	Wait(0)
-
-  	if IsControlPressed(0, Keys["F2"]) and not ESX.UI.Menu.IsOpen('default', 'es_extended', 'inventory') and (GetGameTimer() - GUI.Time) > 150 then
-  		ESX.ShowInventory()
-	  	GUI.Time  = GetGameTimer()
-    end
-
+    if GetLastInputMethod(2) then
+    	if IsControlPressed(0, Keys["F2"]) and not ESX.UI.Menu.IsOpen('default', 'es_extended', 'inventory') and (GetGameTimer() - GUI.Time) > 150 then
+    		ESX.ShowInventory()
+  	  	GUI.Time  = GetGameTimer()
+      end
+    end 
   end
 end)
 
