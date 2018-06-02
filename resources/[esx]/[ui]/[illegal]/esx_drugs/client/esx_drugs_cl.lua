@@ -242,7 +242,7 @@ end)
 Citizen.CreateThread(function()
     while true do
 
-        Wait(0)
+        Wait(10000)
 
         local coords      = GetEntityCoords(GetPlayerPed(-1))
         local isInMarker  = false
@@ -266,6 +266,8 @@ Citizen.CreateThread(function()
             TriggerEvent('esx_drugs:hasExitedMarker', lastZone)
         end
 
+        Wait(10000)
+        
     end
 end)
 

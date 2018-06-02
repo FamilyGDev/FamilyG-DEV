@@ -411,25 +411,31 @@ local function HarvestWeed(source)
 end
 
 RegisterServerEvent('esx_drugs:startHarvestWeed')
-AddEventHandler('esx_drugs:startHarvestWeed', function()
-
+AddEventHandler('esx_drugs:startHarvestWeed', function(zone)
 	local _source = source
-
-	PlayersHarvestingWeed[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('pickup_in_prog'))
-
-	HarvestWeed(_source)
-
+  	
+	if PlayersHarvestingWeed[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersHarvestingWeed[_source] = false
+	else
+		PlayersHarvestingWeed[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('pickup_in_prog'))  
+		HarvestWeed(_source)
+	end
 end)
+
 
 RegisterServerEvent('esx_drugs:stopHarvestWeed')
 AddEventHandler('esx_drugs:stopHarvestWeed', function()
-
 	local _source = source
-
-	PlayersHarvestingWeed[_source] = false
-
+	
+	if PlayersHarvestingWeed[_source] == true then
+		PlayersHarvestingWeed[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Vous pouvez ~g~récolter')
+		PlayersHarvestingWeed[_source] = true
+	end
 end)
 
 local function TransformWeed(source)
