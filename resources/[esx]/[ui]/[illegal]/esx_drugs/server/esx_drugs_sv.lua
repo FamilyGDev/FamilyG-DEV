@@ -63,24 +63,29 @@ end
 
 RegisterServerEvent('esx_drugs:startHarvestCoke')
 AddEventHandler('esx_drugs:startHarvestCoke', function()
-
 	local _source = source
-
-	PlayersHarvestingCoke[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('pickup_in_prog'))
-
-	HarvestCoke(_source)
-
+  	
+	if PlayersHarvestingCoke[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersHarvestingCoke[_source] = false
+	else
+		PlayersHarvestingCoke[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('pickup_in_prog'))  
+		HarvestCoke(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopHarvestCoke')
 AddEventHandler('esx_drugs:stopHarvestCoke', function()
-
 	local _source = source
-
-	PlayersHarvestingCoke[_source] = false
-
+	
+	if PlayersHarvestingCoke[_source] == true then
+		PlayersHarvestingCoke[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersHarvestingCoke[_source] = true
+	end
 end)
 
 local function TransformCoke(source)
@@ -117,24 +122,29 @@ end
 
 RegisterServerEvent('esx_drugs:startTransformCoke')
 AddEventHandler('esx_drugs:startTransformCoke', function()
-
 	local _source = source
-
-	PlayersTransformingCoke[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('packing_in_prog'))
-
-	TransformCoke(_source)
-
+  	
+	if PlayersTransformingCoke[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersTransformingCoke[_source] = false
+	else
+		PlayersTransformingCoke[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('packing_in_prog'))  
+		TransformCoke(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopTransformCoke')
 AddEventHandler('esx_drugs:stopTransformCoke', function()
-
 	local _source = source
-
-	PlayersTransformingCoke[_source] = false
-
+	
+	if PlayersTransformingCoke[_source] == true then
+		PlayersTransformingCoke[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersTransformingCoke[_source] = true
+	end
 end)
 
 local function SellCoke(source)
@@ -186,25 +196,31 @@ end
 
 RegisterServerEvent('esx_drugs:startSellCoke')
 AddEventHandler('esx_drugs:startSellCoke', function()
-
 	local _source = source
-
-	PlayersSellingCoke[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('sale_in_prog'))
-
-	SellCoke(_source)
-
+  	
+	if PlayersSellingCoke[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersSellingCoke[_source] = false
+	else
+		PlayersSellingCoke[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('sale_in_prog'))  
+		SellCoke(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopSellCoke')
 AddEventHandler('esx_drugs:stopSellCoke', function()
-
 	local _source = source
-
-	PlayersSellingCoke[_source] = false
-
+	
+	if PlayersSellingCoke[_source] == true then
+		PlayersSellingCoke[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersSellingCoke[_source] = true
+	end
 end)
+
 
 --meth
 local function HarvestMeth(source)
@@ -236,24 +252,29 @@ end
 
 RegisterServerEvent('esx_drugs:startHarvestMeth')
 AddEventHandler('esx_drugs:startHarvestMeth', function()
-
 	local _source = source
-
-	PlayersHarvestingMeth[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('pickup_in_prog'))
-
-	HarvestMeth(_source)
-
+  	
+	if PlayersHarvestingMeth[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersHarvestingMeth[_source] = false
+	else
+		PlayersHarvestingMeth[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('pickup_in_prog'))  
+		HarvestMeth(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopHarvestMeth')
 AddEventHandler('esx_drugs:stopHarvestMeth', function()
-
 	local _source = source
-
-	PlayersHarvestingMeth[_source] = false
-
+	
+	if PlayersHarvestingMeth[_source] == true then
+		PlayersHarvestingMeth[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersHarvestingMeth[_source] = true
+	end
 end)
 
 local function TransformMeth(source)
@@ -290,24 +311,29 @@ end
 
 RegisterServerEvent('esx_drugs:startTransformMeth')
 AddEventHandler('esx_drugs:startTransformMeth', function()
-
 	local _source = source
-
-	PlayersTransformingMeth[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('packing_in_prog'))
-
-	TransformMeth(_source)
-
+  	
+	if PlayersTransformingMeth[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersTransformingMeth[_source] = false
+	else
+		PlayersTransformingMeth[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('packing_in_prog'))  
+		TransformMeth(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopTransformMeth')
 AddEventHandler('esx_drugs:stopTransformMeth', function()
-
 	local _source = source
-
-	PlayersTransformingMeth[_source] = false
-
+	
+	if PlayersTransformingMeth[_source] == true then
+		PlayersTransformingMeth[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersTransformingMeth[_source] = true
+	end
 end)
 
 local function SellMeth(source)
@@ -362,25 +388,31 @@ end
 
 RegisterServerEvent('esx_drugs:startSellMeth')
 AddEventHandler('esx_drugs:startSellMeth', function()
-
 	local _source = source
-
-	PlayersSellingMeth[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('sale_in_prog'))
-
-	SellMeth(_source)
-
+  	
+	if PlayersSellingMeth[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersSellingMeth[_source] = false
+	else
+		PlayersSellingMeth[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('sale_in_prog'))  
+		SellMeth(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopSellMeth')
 AddEventHandler('esx_drugs:stopSellMeth', function()
-
 	local _source = source
-
-	PlayersSellingMeth[_source] = false
-
+	
+	if PlayersSellingMeth[_source] == true then
+		PlayersSellingMeth[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersSellingMeth[_source] = true
+	end
 end)
+
 
 --weed
 local function HarvestWeed(source)
@@ -411,7 +443,7 @@ local function HarvestWeed(source)
 end
 
 RegisterServerEvent('esx_drugs:startHarvestWeed')
-AddEventHandler('esx_drugs:startHarvestWeed', function(zone)
+AddEventHandler('esx_drugs:startHarvestWeed', function()
 	local _source = source
   	
 	if PlayersHarvestingWeed[_source] == false then
@@ -433,7 +465,7 @@ AddEventHandler('esx_drugs:stopHarvestWeed', function()
 		PlayersHarvestingWeed[_source] = false
 		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
 	else
-		TriggerClientEvent('esx:showNotification', _source, 'Vous pouvez ~g~récolter')
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
 		PlayersHarvestingWeed[_source] = true
 	end
 end)
@@ -471,25 +503,31 @@ end
 
 RegisterServerEvent('esx_drugs:startTransformWeed')
 AddEventHandler('esx_drugs:startTransformWeed', function()
-
 	local _source = source
-
-	PlayersTransformingWeed[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('packing_in_prog'))
-
-	TransformWeed(_source)
-
+  	
+	if PlayersTransformingWeed[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersTransformingWeed[_source] = false
+	else
+		PlayersTransformingWeed[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('packing_in_prog'))  
+		TransformWeed(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopTransformWeed')
 AddEventHandler('esx_drugs:stopTransformWeed', function()
-
 	local _source = source
-
-	PlayersTransformingWeed[_source] = false
-
+	
+	if PlayersTransformingWeed[_source] == true then
+		PlayersTransformingWeed[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersTransformingWeed[_source] = true
+	end
 end)
+
 
 local function SellWeed(source)
 
@@ -537,24 +575,29 @@ end
 
 RegisterServerEvent('esx_drugs:startSellWeed')
 AddEventHandler('esx_drugs:startSellWeed', function()
-
 	local _source = source
-
-	PlayersSellingWeed[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('sale_in_prog'))
-
-	SellWeed(_source)
-
+  	
+	if PlayersSellingWeed[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersSellingWeed[_source] = false
+	else
+		PlayersSellingWeed[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('sale_in_prog'))  
+		SellWeed(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopSellWeed')
 AddEventHandler('esx_drugs:stopSellWeed', function()
-
 	local _source = source
-
-	PlayersSellingWeed[_source] = false
-
+	
+	if PlayersSellingWeed[_source] == true then
+		PlayersSellingWeed[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersSellingWeed[_source] = true
+	end
 end)
 
 
@@ -589,25 +632,31 @@ end
 
 RegisterServerEvent('esx_drugs:startHarvestOpium')
 AddEventHandler('esx_drugs:startHarvestOpium', function()
-
 	local _source = source
-
-	PlayersHarvestingOpium[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('pickup_in_prog'))
-
-	HarvestOpium(_source)
-
+  	
+	if PlayersHarvestingOpium[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersHarvestingOpium[_source] = false
+	else
+		PlayersHarvestingOpium[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('pickup_in_prog'))  
+		HarvestOpium(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopHarvestOpium')
 AddEventHandler('esx_drugs:stopHarvestOpium', function()
-
 	local _source = source
-
-	PlayersHarvestingOpium[_source] = false
-
+	
+	if PlayersHarvestingOpium[_source] == true then
+		PlayersHarvestingOpium[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersHarvestingOpium[_source] = true
+	end
 end)
+
 
 local function TransformOpium(source)
 
@@ -643,25 +692,31 @@ end
 
 RegisterServerEvent('esx_drugs:startTransformOpium')
 AddEventHandler('esx_drugs:startTransformOpium', function()
-
 	local _source = source
-
-	PlayersTransformingOpium[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('packing_in_prog'))
-
-	TransformOpium(_source)
-
+  	
+	if PlayersTransformingOpium[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersTransformingOpium[_source] = false
+	else
+		PlayersTransformingOpium[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('packing_in_prog'))  
+		TransformOpium(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopTransformOpium')
 AddEventHandler('esx_drugs:stopTransformOpium', function()
-
 	local _source = source
-
-	PlayersTransformingOpium[_source] = false
-
+	
+	if PlayersTransformingOpium[_source] == true then
+		PlayersTransformingOpium[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersTransformingOpium[_source] = true
+	end
 end)
+
 
 local function SellOpium(source)
 
@@ -712,24 +767,29 @@ end
 
 RegisterServerEvent('esx_drugs:startSellOpium')
 AddEventHandler('esx_drugs:startSellOpium', function()
-
 	local _source = source
-
-	PlayersSellingOpium[_source] = true
-
-	TriggerClientEvent('esx:showNotification', _source, _U('sale_in_prog'))
-
-	SellOpium(_source)
-
+  	
+	if PlayersSellingOpium[_source] == false then
+		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		PlayersSellingOpium[_source] = false
+	else
+		PlayersSellingOpium[_source] = true
+		TriggerClientEvent('esx:showNotification', _source, _U('sale_in_prog'))  
+		SellOpium(_source)
+	end
 end)
 
 RegisterServerEvent('esx_drugs:stopSellOpium')
 AddEventHandler('esx_drugs:stopSellOpium', function()
-
 	local _source = source
-
-	PlayersSellingOpium[_source] = false
-
+	
+	if PlayersSellingOpium[_source] == true then
+		PlayersSellingOpium[_source] = false
+		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+	else
+		TriggerClientEvent('esx:showNotification', _source, 'Veuillez attendre 10s avant de ~g~récolter')
+		PlayersSellingOpium[_source] = true
+	end
 end)
 
 
