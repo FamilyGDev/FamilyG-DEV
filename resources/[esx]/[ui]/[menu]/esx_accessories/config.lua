@@ -8,8 +8,8 @@ Config.EnableControls = true
 
 
 Config.DrawDistance = 100.0
-Config.Size   = {x = 1.5, y = 1.5, z = 1.0}
-Config.Color  = {r = 102, g = 102, b = 204}
+Config.Size   = {x = 1.2, y = 1.2, z = 0.2}
+Config.Color  = {r = 219, g = 173, b = 22}
 Config.Type   = 1
 
 

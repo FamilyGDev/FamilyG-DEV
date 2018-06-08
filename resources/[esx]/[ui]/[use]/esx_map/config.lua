@@ -33,6 +33,9 @@ Config.Map = {
   -- Raffineur
   {name="Raffineur",color=60, id=436, x=1724.6982421875, y =-1575.3970947266, z= 112.58692169189},
 
+  -- Brinks
+  {name="Brinks",color=67, id=67, x=-72.9264, y =-682.4218, z= 32.5919},
+
   -- Foodtruck
   --{name="FoodTruck",color=67, id=318, x=-159.87442016, y =285.932403, z= 97.838401794},
 

@@ -80,5 +80,26 @@ INTERIORS = {
 	-- CASERNE DES FIREGUARDS- ACCES AU TOIT DES HELICO
 	[44] = {id = 44, x = 1196.00, y = -1484.00, z = 44.80, h = 272.00, name = "NIV -1", destination = {45}},
     [45] = {id = 45, x = 1209.00, y = -1467.00, z = 35.00, h = 90.00, name = "NIV 0", destination = {44}},
-	
+
+
+    -- ACCES CIRCUIT
+	[46] = {id = 46, x = 1197.5317382813, y = -3118.5563964844, z = 5.5369248390198, h = 178.00, name = "Sortir du circuit", destination = {47}},
+    [47] = {id = 47, x = 4696.9916992188, y = 2733.302734375, z = 10.627941131592, h = 353.00, name = "Entrer dans le circuit", destination = {46}},
+    
+    -- ACCES AGENCE IMMO
+	[48] = {id = 48, x = -141.71784973145, y = -621.04925537109, z = 168.82041931152, h = 178.00, name = "Descendre chez CenturyOtter", destination = {49}},
+    [49] = {id = 49, x = -133.85739135742, y = -584.37268066406, z = 201.73550415039, h = 353.00, name = "Accès au toit", destination = {48}},
+
+    -- ACCES PARKING EXPORT IMPORT
+	[50] = {id = 50, x = 730.63916015625, y = -2993.2373046875, z = -38.999904632568, h = 178.00, name = "Descendre chez EXPORT", destination = {51}},
+    [51] = {id = 51, x = 730.63916015625, y = -2993.2373046875, z = -38.999904632568, h = 353.00, name = "Accès au parking", destination = {50}},
+
+    -- ACCES DEUXIEME GARAGE BENNYS
+	[52] = {id = 52, x = -174.21922302246, y = -1289.5803222656, z = 31.295976638794, h = 178.00, name = "Sortie vers parking", destination = {53}},
+    [53] = {id = 53, x = 1003.943359375, y = -2997.650390625, z = -39.646953582764, h = 353.00, name = "Accès extension (achetable)", destination = {52}},
+
+    -- ACCES COFFRE BANQUE
+	[54] = {id = 54, x = 251.37016296387, y = 223.7381439209, z = 101.68343353271, h = 178.00, name = "Accès coffre", destination = {55}},
+    [55] = {id = 55, x = 252.05717468262, y = 225.47036743164, z = 101.68325042725, h = 353.00, name = "Sortie", destination = {54}},
+
 }

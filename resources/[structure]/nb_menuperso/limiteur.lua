@@ -10,7 +10,7 @@ Citizen.CreateThread( function()
         local inVehicle = IsPedSittingInAnyVehicle(ped)
         local float Max = GetVehicleMaxSpeed(vehicleModel)
         if ped and inVehicle then
-            if IsControlJustPressed(1, 56) then
+            if IsControlJustPressed(1, 168) then
                 if (GetPedInVehicleSeat(vehicle, -1) == ped) then
                     if CruiseControl == 0 then
                         speedLimit = speed

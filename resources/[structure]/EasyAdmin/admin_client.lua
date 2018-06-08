@@ -1,14 +1,5 @@
 players = {}
 banlist = {}
-banlist.reasons = {}
-permissions = {
-	ban = false,
-	kick = false,
-	spectate = false,
-	unban = false,
-	teleport = false,
-	manageserver = true,
-}
 
 RegisterNetEvent("EasyAdmin:adminresponse")
 RegisterNetEvent("EasyAdmin:amiadmin")
@@ -16,8 +7,11 @@ RegisterNetEvent("EasyAdmin:fillBanlist")
 RegisterNetEvent("EasyAdmin:requestSpectate")
 
 RegisterNetEvent("EasyAdmin:SetSetting")
+RegisterNetEvent("EasyAdmin:SetLanguage")
 
 RegisterNetEvent("EasyAdmin:TeleportRequest")
+RegisterNetEvent("EasyAdmin:SlapPlayer")
+RegisterNetEvent("EasyAdmin:FreezePlayer")
 
 
 
@@ -32,6 +26,10 @@ AddEventHandler('EasyAdmin:SetSetting', function(setting,state)
 	settings[setting] = state
 end)
 
+AddEventHandler('EasyAdmin:SetLanguage', function(newstrings)
+	strings = newstrings
+end)
+
 
 AddEventHandler("EasyAdmin:fillBanlist", function(thebanlist)
 	banlist = thebanlist
@@ -40,6 +38,12 @@ end)
 Citizen.CreateThread( function()
   while true do
     Citizen.Wait(0)
+		if frozen then
+			FreezeEntityPosition(PlayerPedId(), frozen)
+			if IsPedInAnyVehicle(PlayerPedId(), true) then
+				FreezeEntityPosition(GetVehiclePedIsIn(PlayerPedId(), false), frozen)
+			end 
+		end
     players = {}
     local localplayers = {}
     for i = 0, 31 do
@@ -62,6 +66,22 @@ AddEventHandler('EasyAdmin:TeleportRequest', function(px,py,pz)
 	SetEntityCoords(PlayerPedId(), px,py,pz,0,0,0, false)
 end)
 
+AddEventHandler('EasyAdmin:SlapPlayer', function(slapAmount)
+	if slapAmount > GetEntityHealth(PlayerPedId()) then
+		SetEntityHealth(PlayerPedId(), 0)
+	else
+		SetEntityHealth(PlayerPedId(), GetEntityHealth(PlayerPedId())-slapAmount)
+	end
+end)
+
+AddEventHandler('EasyAdmin:FreezePlayer', function(toggle)
+	frozen = toggle
+	FreezeEntityPosition(PlayerPedId(), frozen)
+	if IsPedInAnyVehicle(PlayerPedId(), false) then
+		FreezeEntityPosition(GetVehiclePedIsIn(PlayerPedId(), false), frozen)
+	end 
+end)
+
 function spectatePlayer(targetPed,target,name)
 	local playerPed = PlayerPedId() -- yourself
 	enable = true
@@ -75,7 +95,7 @@ function spectatePlayer(targetPed,target,name)
 			NetworkSetInSpectatorMode(true, targetPed)
 
 			DrawPlayerInfo(target)
-			ShowNotification("Spectating ~b~<C>"..name.."</C>.")
+			ShowNotification(string.format(strings.spectatingUser, name))
 	else
 
 			local targetx,targety,targetz = table.unpack(GetEntityCoords(targetPed, false))
@@ -84,7 +104,7 @@ function spectatePlayer(targetPed,target,name)
 			NetworkSetInSpectatorMode(false, targetPed)
 
 			StopDrawPlayerInfo()
-			ShowNotification("Stopped Spectating.")
+			ShowNotification(strings.stoppedSpectating)
 	end
 end
 

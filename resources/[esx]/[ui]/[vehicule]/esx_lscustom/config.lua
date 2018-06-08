@@ -12,6 +12,15 @@ Config.Zones = {
 		Name  = "Atelier mécano",
 		Hint  = "Appuyez sur ~INPUT_PICKUP~ pour personnaliser le véhicule."
 	}
+
+--	ls2 = {
+--		Pos   = { x = 4560.7416992188, y = 2600.4011230469, z = 11.092325210571},
+--		Size  = {x = 3.0, y = 3.0, z = 0.2},
+--		Color = {r = 204, g = 204, b = 0},
+--		Marker= 1,
+--		Name  = "Atelier circuit",
+--		Hint  = "Appuyez sur ~INPUT_PICKUP~ pour personnaliser le véhicule."
+--	}
 }
 
 Config.Colors = {

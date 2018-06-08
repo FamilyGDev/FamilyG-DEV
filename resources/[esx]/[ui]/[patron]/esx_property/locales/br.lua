@@ -1,7 +1,6 @@
 Locales['br'] = {
-  ['have_withdrawn'] = 'você retirou ~y~x%s~s~ ~b~%s~s~',
-  ['have_deposited'] = 'você depositou ~y~x%s~s~ ~b~%s~s~',
-  ['free_prop'] = 'Propriedade a Venda',
+
+  ['free_prop'] = 'Propriedade gratuita',
   ['property'] = 'Propriedade',
   ['enter'] = 'Entrar',
   ['leave'] = 'Sair',
@@ -12,10 +11,7 @@ Locales['br'] = {
   ['owned_properties'] = 'Propriedades adquiridas',
   ['available_properties'] = 'Propriedades disponíveis',
   ['invite_player'] = 'Convidar um jogador',
-  ['you_invited'] = 'you invited ~y~%s~s~ to your property',
   ['player_clothes'] = 'Roupas',
-  ['remove_cloth'] = 'tire a roupa',
-  ['removed_cloth'] = 'a roupa foi removida do seu guarda-roupa!',
   ['remove_object'] = 'Remover objeto',
   ['deposit_object'] = 'Depositar objeto',
   ['invite'] = 'Convidar',
@@ -29,7 +25,6 @@ Locales['br'] = {
   ['made_property'] = 'Você criou uma propriedade',
   ['not_enough'] = 'Você não tem dinheiro suficiente',
   ['invalid_quantity'] = 'Quantidade inválida',
-  ['paid_rent'] = 'Você ~g~pagou~s~ seu aluguel: ~g~$%s~s~',
-  ['not_enough_in_property'] = 'não há o suficiente de que esse item esteja na propriedade!',
-  ['player_cannot_hold'] = 'você não tem espaço suficiente em seu inventário!',
+  ['paid_rent'] = 'Você ~g~pagou~s~ seu aluguel: ~g~$',
+
 }

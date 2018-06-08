@@ -318,24 +318,34 @@ function OpenVehicleSpawnerMenu(station, partNum)
 
     table.insert(elements, { label = 'Vélo', value = 'fixter' })
     table.insert(elements, { label = 'Cruiser', value = 'police' })
-    table.insert(elements, { label = 'Sheriff Cruiser', value = 'sheriff' })
+    
 
     if PlayerData.job.grade_name == 'officer' then
+      table.insert(elements, { label = 'SUV', value = 'ninef'})
       table.insert(elements, { label = 'Interceptor', value = 'police3'})
+      table.insert(elements, { label = 'Buffalo', value = 'police2'})
+      table.insert(elements, { label = 'Patrouille', value = 'police'})
+      table.insert(elements, { label = 'Transporteur', value = 'policet'})
+      table.insert(elements, { label = 'Banalisé', value = 'police4'})
+      table.insert(elements, { label = 'Lambo', value = 'police5' })
+      
     end
 
     if PlayerData.job.grade_name == 'sergeant' then
-      table.insert(elements, { label = 'Sheriff SUV', value = 'sheriff2'})
+      table.insert(elements, { label = 'SUV', value = 'ninef'})
       table.insert(elements, { label = 'Interceptor', value = 'police3'})
       table.insert(elements, { label = 'Buffalo', value = 'police2'})
       table.insert(elements, { label = 'Moto', value = 'policeb'})
       table.insert(elements, { label = 'Bus pénitentiaire', value = 'pbus'})
       table.insert(elements, { label = 'Bus de transport', value = 'policet'})
       table.insert(elements, { label = 'Antiémeute', value = 'riot'})
+      table.insert(elements, { label = 'Patrouille', value = 'police'})
+      table.insert(elements, { label = 'Banalisé', value = 'police4'})
+      table.insert(elements, { label = 'Lambo', value = 'police5' })
     end
 
     if PlayerData.job.grade_name == 'lieutenant' then
-      table.insert(elements, { label = 'Sheriff SUV', value = 'sheriff2'})
+      table.insert(elements, { label = 'SUV', value = 'ninef'})
       table.insert(elements, { label = 'Interceptor', value = 'police3'})
       table.insert(elements, { label = 'Buffalo', value = 'police2'})
       table.insert(elements, { label = 'Moto', value = 'policeb'})
@@ -344,10 +354,11 @@ function OpenVehicleSpawnerMenu(station, partNum)
       table.insert(elements, { label = 'Antiémeute', value = 'riot'})
       table.insert(elements, { label = 'FBI', value = 'fbi'})
       table.insert(elements, { label = 'FBI SUV', value = 'fbi2'})
+      table.insert(elements, { label = 'Lambo', value = 'police5' })
     end
 
     if PlayerData.job.grade_name == 'boss' then
-      table.insert(elements, { label = 'Sheriff SUV', value = 'sheriff2'})
+      table.insert(elements, { label = 'SUV', value = 'ninef'})
       table.insert(elements, { label = 'Interceptor', value = 'police3'})
       table.insert(elements, { label = 'Buffalo', value = 'police2'})
       table.insert(elements, { label = 'Moto', value = 'policeb'})
@@ -357,6 +368,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
       table.insert(elements, { label = 'FBI', value = 'fbi'})
       table.insert(elements, { label = 'FBI SUV', value = 'fbi2'})
       table.insert(elements, { label = 'Voiture Banalisée ', value = 'police4'})
+      table.insert(elements, { label = 'Lambo', value = 'police5' })
     end
 
     ESX.UI.Menu.Open(

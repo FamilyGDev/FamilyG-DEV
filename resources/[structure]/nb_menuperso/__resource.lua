@@ -8,7 +8,7 @@ client_script 'keycontrol.lua'
 client_script 'client.lua'
 client_script 'crouch.lua'
 client_script 'pointing.lua'
---client_script 'handsup.lua'
+client_script 'handsup.lua'
 client_script 'config.lua'
 client_script 'limiteur.lua'
 server_scripts {
